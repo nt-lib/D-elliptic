@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tabulate, for each degree D in 3..100, the values of M with a saved positive decision.
+"""Tabulate, for each degree D in 3..100, the levels N with a saved positive decision.
 
 Usage: python levels_by_degree.py [input.csv] [output.csv]
 """
@@ -18,13 +18,12 @@ def main():
         for row in csv.DictReader(f):
             for D in map(int, row["degrees_with_saved_positive_decision"].split()):
                 if D in levels:
-                    levels[D].add(int(row["M"]))
+                    levels[D].add(int(row["N"]))
     with open(dst, "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["degree", "level"])
         for D in DEGREES:
-            for M in sorted(levels[D]):
-                writer.writerow([D, M])
+            writer.writerow([D, " ".join(map(str, sorted(levels[D])))])
 
 
 if __name__ == "__main__":
