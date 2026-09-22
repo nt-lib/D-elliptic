@@ -1,7 +1,11 @@
 #!/usr/bin/env python3
-"""Tabulate, for each degree D in 3..100, the levels N with a saved positive decision.
+"""Tabulate, for each degree D in 3..100, the levels N for which X_0(N) is D-elliptic.
+
+This transforms the data in `results/quadratic_forms_x0.csv` into the data in `results/D-elliptic_levels_by_degree.csv`.
 
 Usage: python levels_by_degree.py [input.csv] [output.csv]
+
+The defaults for input.csv output.csv are `results/quadratic_forms_x0.csv` and `results/D-elliptic_levels_by_degree.csv`.
 """
 
 import csv
