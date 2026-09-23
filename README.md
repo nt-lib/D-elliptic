@@ -1,8 +1,7 @@
 # Degree-D maps from $X_0(N)$ to elliptic curves
 
-SageMath code accompanying the paper: $D$-elliptic modular curves $X_0(N) ([arXiv:2609.24363](https://arxiv.org/abs/2609.24363)). For a positive integer D, it searches
-for levels N with genus(X₀(N)) ≥ 2 admitting a degree-D map over Q to an
-elliptic curve, and gives a lattice and degree form. An integral solution is optional.
+SageMath code accompanying the paper: $D$-elliptic modular curves $X_0(N)$ ([arXiv:2609.24363](https://arxiv.org/abs/2609.24363)). For a positive integer D, it computes all levels N with $genus(X_0(N)) \geq 2$ admitting a degree $D$ map over $Q$ to an
+elliptic curve. It also gives the positive definite quadratic degree form whose values give all possible degrees of the map $X_0(N) \to E$. If wanted it also gives information on how to obtain the maps $X_0(N) \to E$ of degree $D$ in terms of degeneracy maps. 
 
 ## Requirements
 
