@@ -1,7 +1,7 @@
 # Degree-D maps from $X_0(N)$ to elliptic curves
 
 SageMath code accompanying the paper: $D$-elliptic modular curves $X_0(N)$ ([arXiv:2609.24363](https://arxiv.org/abs/2609.24363)). For a positive integer D, it computes all levels N with $genus(X_0(N)) \geq 2$ admitting a degree $D$ map over $Q$ to an
-elliptic curve. It also gives the positive definite quadratic degree form whose values give all possible degrees of the map $X_0(N) \to E$. If wanted it also gives information on how to obtain the maps $X_0(N) \to E$ of degree $D$ in terms of degeneracy maps. 
+elliptic curve. It also gives the positive definite quadratic degree form whose values give all possible degrees of the map $X_0(N) \to E$. Optionally, it provides an integral solution expressing a degree $D$ map in terms of degeneracy maps.
 
 ## Requirements
 
@@ -78,20 +78,9 @@ negative answers. An error-free search reports `complete`.
 
 ## Saved results through degree 100
 
-[`x0_elliptic_tables.pdf`](results/x0_elliptic_tables.pdf) presents the levels by degree
-and positive target degree forms in a readable table.
+[`x0_elliptic_tables.pdf`](results/x0_elliptic_tables.pdf) presents the levels by degree and positive target degree forms, with Cremona and LMFDB labels, in a readable table.
 
-[`quadratic_forms_x0.csv`](results/quadratic_forms_x0.csv) contains 11,908 distinct
-positive target-lattice records from completed searches for 3 <= D <= 100.
-Each row gives N, M, the source and target labels, the isogeny degree,
-the lattice basis B, the degree matrix A, its polynomial, and a space-separated
-list of degrees with a saved positive decision. Matrices are encoded as JSON
-arrays with exact rational entries. The polynomial variables x1, x2, ... are
-lattice coordinates (z in the code), not old coordinates Bz.
-
-These are preserved results from earlier code versions, not a new run of this
-release. As in the search above, targets skipped after a positive decision are
-not listed. The CSV is an output table, not input to the computation.
+[`quadratic_forms_x0.csv`](results/quadratic_forms_x0.csv) contains 11,908 distinct positive target-lattice records from completed searches for 3 <= D <= 100. Each row gives N, M, the source and target curve labels (Cremona and LMFDB), the isogeny degree, the differential scaling factor c_u, the lattice basis B, the degree matrix A, its polynomial, and a space-separated list of degrees with a saved positive decision. Matrices are encoded as JSON arrays with exact rational entries. The polynomial variables x1, x2, ... are lattice coordinates (z in the code), not old coordinates Bz.
 
 ## Code structure
 
@@ -131,10 +120,6 @@ Shared utilities are `curve_key` and `curve_label` (curve identifiers) and
 `load_modular_degrees` (CSV input). `main` handles the command line.
 In `d_elliptic_output.py`, `format_results` formats the result,
 `save_results` writes it, and `main` runs the file-output command.
-
-Keep the two command-line interfaces and result fields stable. Cache only
-reusable source data; share level-dependent matrices within a pair. A failed
-calculation must remain unresolved, never a negative answer.
 
 ## Algorithm
 
